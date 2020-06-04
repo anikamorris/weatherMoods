@@ -25,10 +25,7 @@ class Api {
             if let error = error {
                 print("Error: \(error)")
             } else {
-                guard let data = data else {
-                    print("no data")
-                    return
-                }
+                guard let data = data else { return }
                 let dataString = String(data: data, encoding: String.Encoding.utf8)
                 print(dataString!)
                 guard let jsonObj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary else {
@@ -36,15 +33,14 @@ class Api {
                     return
                 }
                 guard let mainDictionary = jsonObj.value(forKey: "main") as? NSDictionary else { return }
-                guard let temp = mainDictionary.value(forKey: "temp") as? Double else {
-                    print("no temp")
-                    return
-                }
+                guard let temp = mainDictionary.value(forKey: "temp") as? Double else { return }
                 guard let min = mainDictionary.value(forKey: "temp_min") as? Int else { return }
                 guard let max = mainDictionary.value(forKey: "temp_max") as? Double else { return }
-//                guard let weatherDictionary = jsonObj.value(forKey: "weather") as? NSDictionary else { return }
-//                guard let description = weatherDictionary.value(forKey: "description") as? String else { return }
-                let weather = WeatherData(description: "clouds", temp: String(temp), min: String(min), max: String(max))
+                guard let weatherArray = jsonObj.value(forKeyPath: "weather") as? NSArray else { return }
+                guard let weatherDict = weatherArray[0] as? NSDictionary else { return }
+                guard let description = weatherDict.value(forKey: "main") as? String else { return }
+
+                let weather = WeatherData(description: description, temp: String(temp), min: String(min), max: String(max))
                 DispatchQueue.main.async {
                     completion(weather)
                 }
@@ -53,26 +49,3 @@ class Api {
         dataTask.resume()
     }
 }
-
-//                if let data = data {
-//                    let dataString = String(data: data, encoding: String.Encoding.utf8)
-//                    print("All weather data: \n \(dataString!)")
-//                    if let jsonObj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary {
-//                        if let mainDictionary = jsonObj.value(forKey: "main") as? NSDictionary {
-//                                if let temperature = mainDictionary.value(forKey: "temp") {
-//                                    DispatchQueue.main.async {
-//                                        print(temperature)
-//                                        print(String(describing: type(of: temperature)))
-//                                    }
-//                                } else {
-//                                    print("Unable to find temperature")
-//                                }
-//
-//                        } else {
-//                            print("Unable to find main")
-//                        }
-//                    }
-//                } else {
-//                    print("Did not recieve data")
-//                }
-//            }

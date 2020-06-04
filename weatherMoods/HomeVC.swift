@@ -11,6 +11,7 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    @IBOutlet var weatherView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var tempMinLabel: UILabel!
@@ -18,6 +19,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupWeatherView()
         let api = Api()
         api.getData() { weather in
             self.descriptionLabel.text = weather.description
@@ -25,6 +27,12 @@ class HomeVC: UIViewController {
             self.tempMinLabel.text = weather.min
             self.tempMaxLabel.text = weather.max
         }
+    }
+    
+    func setupWeatherView() {
+        weatherView.backgroundColor = .systemTeal
+        weatherView.clipsToBounds = true
+        weatherView.layer.cornerRadius = 10
     }
 
 }
