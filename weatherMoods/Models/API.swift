@@ -8,13 +8,6 @@
 
 import Foundation
 
-struct WeatherData {
-    let description: String
-    let temp: String
-    let min: String
-    let max: String
-}
-
 class Api {
     
     func getData(completion: @escaping (WeatherData) -> ()) {
