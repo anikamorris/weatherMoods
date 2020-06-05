@@ -24,10 +24,20 @@ class HomeVC: UIViewController {
     var icon: UIImage?
     var buttonState: Int = 0
     var moodInputtedToday: Bool = false
+    let persistence = PersistenceLayer()
+    
+    let sameDay: (Int?, Int) -> Bool = { day1, day2 in
+        return day1 == day2
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        moodInputtedToday = false
+        
+        let day = Day()
+        if let persistDay = persistence.day {
+            moodInputtedToday = sameDay(persistDay.getDay(), day.getDay())
+        }
+        
         baseView.backgroundColor = #colorLiteral(red: 0.9609126449, green: 0.9609126449, blue: 0.9609126449, alpha: 1)
         setupWeatherView()
         let api = Api()
@@ -42,7 +52,6 @@ class HomeVC: UIViewController {
             self.tempMaxLabel.text = "High: \(weather.max)°"
         }
         setupMoodView()
-
     }
     
     func downloadImage(url: String) -> UIImage? {
@@ -66,16 +75,27 @@ class HomeVC: UIViewController {
         moodView.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         moodView.clipsToBounds = true
         moodView.layer.cornerRadius = 10
-        
-        moodText.contentInset = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 10.0, right: 10.0)
-        moodText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         moodText.clipsToBounds = true
         moodText.layer.cornerRadius = 7
         moodText.layer.borderWidth = 4
         moodText.layer.borderColor = #colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1)
-        moodText.textColor = .darkText
+        moodText.contentInset = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 10.0, right: 10.0)
         
-        saveButton.setTitleColor(#colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1), for: .normal)
+        print(moodInputtedToday)
+        
+        if moodInputtedToday {
+            buttonState = 0
+            saveButton.setTitle("Edit", for: .normal)
+            saveButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            moodText.text = persistence.moods[0].mood
+            moodText.isEditable = false
+            moodText.backgroundColor = #colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1)
+            moodText.textColor = .white
+        } else {
+            moodText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            moodText.textColor = .darkText
+            saveButton.setTitleColor(#colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1), for: .normal)
+        }
     }
 
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -96,7 +116,6 @@ class HomeVC: UIViewController {
             if moodInputtedToday {
                 persistence.updateMood(0, newMood: mood)
                 persistence.setNeedsToReloadMoods()
-                print(persistence.moods)
             } else {
                 moodInputtedToday = true
                 persistence.newMood(mood: mood)

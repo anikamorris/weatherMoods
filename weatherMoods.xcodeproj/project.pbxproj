@@ -19,6 +19,7 @@
 		CFDA77712489CF8F00D1C314 /* PersistenceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */; };
 		CFDA77752489E6AD00D1C314 /* PastMoodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */; };
 		CFDA77772489EF1C00D1C314 /* MoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77762489EF1C00D1C314 /* MoodCell.swift */; };
+		CFDA7779248A0BC700D1C314 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA7778248A0BC600D1C314 /* Day.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLayer.swift; sourceTree = "<group>"; };
 		CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastMoodsVC.swift; sourceTree = "<group>"; };
 		CFDA77762489EF1C00D1C314 /* MoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCell.swift; sourceTree = "<group>"; };
+		CFDA7778248A0BC600D1C314 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				CF68DFFD24899A2700377C58 /* API.swift */,
 				CFDA776E2489CE4A00D1C314 /* Mood.swift */,
 				CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */,
+				CFDA7778248A0BC600D1C314 /* Day.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF68DFEA248999FC00377C58 /* AppDelegate.swift in Sources */,
+				CFDA7779248A0BC700D1C314 /* Day.swift in Sources */,
 				CF3076152489AF0800398C52 /* WeatherData.swift in Sources */,
 				CF68DFFE24899A2700377C58 /* API.swift in Sources */,
 				CFDA77712489CF8F00D1C314 /* PersistenceLayer.swift in Sources */,

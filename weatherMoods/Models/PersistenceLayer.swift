@@ -10,11 +10,26 @@ import Foundation
 
 struct PersistenceLayer {
     
+    private(set) var day: Day? = nil
     private(set) var moods: [Mood] = []
     private static let userDefaultsMoodsKeyValue = "MOODS_ARRAY"
+    private static let userDefaultsDayKeyValue = "DAY"
 
     init() {
         self.loadMoods()
+        self.setDay()
+    }
+    
+    private mutating func setDay() {
+        let today = Day()
+        self.day = today
+        guard let dayData = try? JSONEncoder().encode(self.day) else {
+            fatalError("could not encode list of moods")
+        }
+
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(dayData, forKey: PersistenceLayer.userDefaultsDayKeyValue)
+        userDefaults.synchronize()        
     }
     
     private mutating func loadMoods() {
