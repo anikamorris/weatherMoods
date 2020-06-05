@@ -9,7 +9,7 @@
 import Foundation
 
 struct WeatherData {
-    let description: String
+    let icon: String
     let temp: String
     let min: String
     let max: String
