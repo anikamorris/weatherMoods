@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zac-fH-3XZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -10,13 +10,13 @@
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="weatherMoods" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeVC" customModule="weatherMoods" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvA-qN-WEq">
-                                <rect key="frame" x="20" y="94" width="374" height="350"/>
+                                <rect key="frame" x="20" y="64" width="374" height="350"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kAI-CW-aD8">
                                         <rect key="frame" x="125" y="20" width="124" height="80"/>
@@ -64,7 +64,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czD-8N-dQP">
-                                <rect key="frame" x="20" y="464" width="374" height="350"/>
+                                <rect key="frame" x="20" y="434" width="374" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozV-CC-e0X">
                                         <rect key="frame" x="20" y="20" width="334" height="35"/>
@@ -115,11 +115,12 @@
                             <constraint firstItem="hvA-qN-WEq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="B96-va-gFm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="czD-8N-dQP" secondAttribute="trailing" constant="20" id="d2d-FH-Dhe"/>
                             <constraint firstItem="czD-8N-dQP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="o3h-Ij-Qkv"/>
-                            <constraint firstItem="hvA-qN-WEq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="th3-wI-T96"/>
+                            <constraint firstItem="hvA-qN-WEq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="th3-wI-T96"/>
                             <constraint firstItem="hvA-qN-WEq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="yxg-2B-K6S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="fYk-7O-EpX"/>
                     <connections>
                         <outlet property="baseView" destination="8bC-Xf-vdC" id="Azc-lJ-TiW"/>
                         <outlet property="iconImageView" destination="kAI-CW-aD8" id="A7S-nA-Luu"/>
@@ -134,7 +135,80 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1048" y="-254"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="NiA-Um-HGS">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Zac-fH-3XZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V53-HJ-EIl">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.43137254899999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="2GN-Nc-viB"/>
+                        <segue destination="Bsn-Vy-5EB" kind="relationship" relationship="viewControllers" id="fOB-2W-gSB"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zHN-B8-9j9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
+        <!--Past MoodsVC-->
+        <scene sceneID="PFQ-LX-D8W">
+            <objects>
+                <tableViewController id="Bsn-Vy-5EB" customClass="PastMoodsVC" customModule="weatherMoods" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lml-aT-Me9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="moodCell" id="WZi-CQ-bb0" customClass="MoodCell" customModule="weatherMoods" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="56.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WZi-CQ-bb0" id="MJG-wT-417">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qoz-D8-8Vo">
+                                            <rect key="frame" x="40" y="16" width="334" height="24.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Qoz-D8-8Vo" secondAttribute="bottom" constant="5" id="TRV-D7-BMh"/>
+                                        <constraint firstItem="Qoz-D8-8Vo" firstAttribute="top" secondItem="MJG-wT-417" secondAttribute="topMargin" constant="5" id="Zjf-n6-ez8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Qoz-D8-8Vo" secondAttribute="trailing" constant="20" id="oW1-SK-18O"/>
+                                        <constraint firstItem="Qoz-D8-8Vo" firstAttribute="leading" secondItem="MJG-wT-417" secondAttribute="leadingMargin" constant="20" id="w1n-Lf-LaB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="moodLabel" destination="Qoz-D8-8Vo" id="vlv-LT-qXN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bsn-Vy-5EB" id="uAv-ag-ojA"/>
+                            <outlet property="delegate" destination="Bsn-Vy-5EB" id="Ny8-8e-slf"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="" image="gobackward" catalog="system" id="mty-R6-QqW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YKM-JB-rWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="473"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="gobackward" catalog="system" width="60" height="64"/>
+        <image name="house" catalog="system" width="64" height="54"/>
+    </resources>
 </document>

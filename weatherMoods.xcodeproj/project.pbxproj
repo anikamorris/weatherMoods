@@ -17,6 +17,8 @@
 		CF68E00024899B4900377C58 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68DFFF24899B4900377C58 /* HomeVC.swift */; };
 		CFDA776F2489CE4A00D1C314 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA776E2489CE4A00D1C314 /* Mood.swift */; };
 		CFDA77712489CF8F00D1C314 /* PersistenceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */; };
+		CFDA77752489E6AD00D1C314 /* PastMoodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */; };
+		CFDA77772489EF1C00D1C314 /* MoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77762489EF1C00D1C314 /* MoodCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		CF68DFFF24899B4900377C58 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CFDA776E2489CE4A00D1C314 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLayer.swift; sourceTree = "<group>"; };
+		CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastMoodsVC.swift; sourceTree = "<group>"; };
+		CFDA77762489EF1C00D1C314 /* MoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				CF68DFFF24899B4900377C58 /* HomeVC.swift */,
+				CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -56,6 +61,7 @@
 		CF3076172489AF2800398C52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CFDA77762489EF1C00D1C314 /* MoodCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,8 +185,10 @@
 				CF68DFFE24899A2700377C58 /* API.swift in Sources */,
 				CFDA77712489CF8F00D1C314 /* PersistenceLayer.swift in Sources */,
 				CF68E00024899B4900377C58 /* HomeVC.swift in Sources */,
+				CFDA77772489EF1C00D1C314 /* MoodCell.swift in Sources */,
 				CFDA776F2489CE4A00D1C314 /* Mood.swift in Sources */,
 				CF68DFEC248999FC00377C58 /* SceneDelegate.swift in Sources */,
+				CFDA77752489E6AD00D1C314 /* PastMoodsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

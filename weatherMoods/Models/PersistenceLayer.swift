@@ -45,9 +45,18 @@ struct PersistenceLayer {
         userDefaults.synchronize()
     }
     
+    mutating func setNeedsToReloadMoods() {
+        self.loadMoods()
+    }
+    
     mutating func updateMood(_ moodIndex: Int, newMood: String) {
         var updatedMood = self.moods[moodIndex]
         updatedMood.mood = newMood
+        self.saveMoods()
+    }
+    
+    mutating func delete(_ moodIndex: Int) {
+        self.moods.remove(at: moodIndex)
         self.saveMoods()
     }
 }
