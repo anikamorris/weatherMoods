@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvA-qN-WEq">
-                                <rect key="frame" x="20" y="64" width="374" height="350"/>
+                                <rect key="frame" x="20" y="94" width="374" height="350"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kAI-CW-aD8">
                                         <rect key="frame" x="125" y="20" width="124" height="80"/>
@@ -64,7 +64,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czD-8N-dQP">
-                                <rect key="frame" x="20" y="464" width="374" height="348"/>
+                                <rect key="frame" x="20" y="464" width="374" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozV-CC-e0X">
                                         <rect key="frame" x="20" y="20" width="334" height="35"/>
@@ -76,7 +76,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KCq-h3-w5A">
-                                        <rect key="frame" x="20" y="75" width="334" height="203"/>
+                                        <rect key="frame" x="20" y="75" width="334" height="205"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -84,7 +84,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5m8-GY-WjE">
-                                        <rect key="frame" x="20" y="298" width="334" height="30"/>
+                                        <rect key="frame" x="20" y="300" width="334" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
@@ -110,12 +110,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="czD-8N-dQP" firstAttribute="top" secondItem="hvA-qN-WEq" secondAttribute="bottom" constant="50" id="2Ic-Kt-HBn"/>
+                            <constraint firstItem="czD-8N-dQP" firstAttribute="top" secondItem="hvA-qN-WEq" secondAttribute="bottom" constant="20" id="2Ic-Kt-HBn"/>
+                            <constraint firstItem="hvA-qN-WEq" firstAttribute="height" secondItem="czD-8N-dQP" secondAttribute="height" id="B7h-fE-Pqn"/>
                             <constraint firstItem="hvA-qN-WEq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="B96-va-gFm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="czD-8N-dQP" secondAttribute="trailing" constant="20" id="d2d-FH-Dhe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="czD-8N-dQP" secondAttribute="bottom" constant="50" id="glQ-av-dKt"/>
                             <constraint firstItem="czD-8N-dQP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="o3h-Ij-Qkv"/>
-                            <constraint firstItem="hvA-qN-WEq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="th3-wI-T96"/>
+                            <constraint firstItem="hvA-qN-WEq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="th3-wI-T96"/>
                             <constraint firstItem="hvA-qN-WEq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="yxg-2B-K6S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

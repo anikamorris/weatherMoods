@@ -19,10 +19,10 @@ class HomeVC: UIViewController {
     @IBOutlet weak var moodView: UIView!
     @IBOutlet weak var moodText: UITextView!
     @IBOutlet weak var saveButton: UIButton!
-    
     @IBOutlet weak var iconImageView: UIImageView!
     
     var icon: UIImage?
+    var buttonState: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,15 +65,37 @@ class HomeVC: UIViewController {
         moodView.clipsToBounds = true
         moodView.layer.cornerRadius = 10
         
+        moodText.contentInset = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 10.0, right: 10.0)
         moodText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         moodText.clipsToBounds = true
         moodText.layer.cornerRadius = 7
-        moodText.layer.borderWidth = 2
+        moodText.layer.borderWidth = 4
         moodText.layer.borderColor = #colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1)
+        moodText.textColor = .darkText
         
         saveButton.setTitleColor(#colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1), for: .normal)
     }
 
     @IBAction func saveButtonTapped(_ sender: Any) {
+        var persistence = PersistenceLayer()
+        guard let mood = moodText.text else { return }
+        // edit
+        if buttonState > 0 {
+            buttonState -= 1
+            saveButton.setTitle("Save", for: .normal)
+            saveButton.setTitleColor(#colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1), for: .normal)
+            moodText.isEditable = true
+            moodText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            moodText.textColor = .darkText
+        // save
+        } else {
+            buttonState += 1
+            persistence.newMood(mood: mood)
+            saveButton.setTitle("Edit", for: .normal)
+            saveButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            moodText.isEditable = false
+            moodText.backgroundColor = #colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1)
+            moodText.textColor = .white
+        }
     }
 }

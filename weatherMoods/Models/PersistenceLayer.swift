@@ -30,15 +30,14 @@ struct PersistenceLayer {
     @discardableResult
     mutating func newMood(mood: String) -> Mood {
         let newMood = Mood(mood: mood)
-        self.moods.insert(newMood, at: 0) // Prepend the habits to the array
+        self.moods.insert(newMood, at: 0) // Prepend the mood to the array
         self.saveMoods()
-
         return newMood
     }
     
     private func saveMoods() {
         guard let moodsData = try? JSONEncoder().encode(self.moods) else {
-            fatalError("could not encode list of habits")
+            fatalError("could not encode list of moods")
         }
 
         let userDefaults = UserDefaults.standard
