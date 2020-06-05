@@ -21,20 +21,21 @@ class PastMoodsVC: UITableViewController {
     }
     
     func setUpTableView() {
-        self.tableView.backgroundColor = #colorLiteral(red: 0.9609126449, green: 0.9609126449, blue: 0.9609126449, alpha: 1)
-        self.tableView.separatorColor = #colorLiteral(red: 0.9609126449, green: 0.9609126449, blue: 0.9609126449, alpha: 1)
+        self.tableView.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        self.tableView.separatorColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         self.tableView.separatorInset = UIEdgeInsets(top: 0.0, left: 30.0, bottom: 0.0, right: 30.0)
     }
     
     func setUpCell(_ cell: MoodCell) {
         cell.moodLabel.textColor = .darkText
         
-        cell.backgroundColor = #colorLiteral(red: 0.9609126449, green: 0.9609126449, blue: 0.9609126449, alpha: 1)
-        cell.cardView.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.431372549, blue: 0.3019607843, alpha: 1)
-        cell.cardView.layer.cornerRadius = 5
+        cell.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        cell.cardView.backgroundColor = #colorLiteral(red: 0.9609126449, green: 0.9609126449, blue: 0.9609126449, alpha: 1)
+        cell.cardView.layer.cornerRadius = 9
         cell.cardView.clipsToBounds = true
-        cell.cardView.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        cell.cardView.layer.borderWidth = 3
+        cell.cardView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.431372549, blue: 0.3019607843, alpha: 1)
+        // borderWidth night be better at 3, decide tmw
+        cell.cardView.layer.borderWidth = 4
     }
     
     override func viewWillAppear(_ animated: Bool) {

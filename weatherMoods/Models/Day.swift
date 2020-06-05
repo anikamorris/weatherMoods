@@ -12,7 +12,7 @@ import UIKit
 class Day: Codable {
     private let date = Date()
     private let calendar = Calendar.current
-    private let currentDay: Int
+    var currentDay: Int
     
     init() {
         self.currentDay = calendar.component(.day, from: date)
@@ -23,6 +23,14 @@ class Day: Codable {
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
         return "\(month)/\(day)/\(year)"
+    }
+    
+    func getFutureDate(days: Int) -> String {
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        let newDay = day + days
+        return "\(month)/\(newDay)/\(year)"
     }
     
     func getDay() -> Int {

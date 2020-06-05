@@ -115,6 +115,11 @@ struct PersistenceLayer {
         self.saveMoodJournal()
     }
     
+    mutating func updateMoodDate(_ moodIndex: Int, days: Int) {
+        self.moodJournal[moodIndex].date.currentDay += days
+        self.saveMoodJournal()
+    }
+    
     mutating func deleteMoodHistory(_ moodIndex: Int) {
         self.moodJournal.remove(at: moodIndex)
         self.saveMoodJournal()

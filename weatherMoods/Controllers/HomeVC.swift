@@ -115,7 +115,6 @@ class HomeVC: UIViewController {
             buttonState += 1
             if moodInputtedToday {
                 // updating today's mood
-
                 persistence.updateMoodHistory(0, newMood: mood)
                 persistence.setNeedsToReloadMoodJournal()
             } else {
@@ -125,5 +124,9 @@ class HomeVC: UIViewController {
             }
             moodTextSaveState()
         }
+    }
+    
+    func makeFiveNewMoods(_ persist: PersistenceLayer) {
+        
     }
 }
