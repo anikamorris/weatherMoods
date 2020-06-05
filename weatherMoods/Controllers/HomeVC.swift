@@ -34,6 +34,7 @@ class HomeVC: UIViewController {
             if let icon = self.icon {
                 self.iconImageView.image = icon
             }
+            self.tempLabel.textColor = .white
             self.tempLabel.text = "Current: \(weather.temp)°"
             self.tempMinLabel.text = "Low: \(weather.min)°"
             self.tempMaxLabel.text = "High: \(weather.max)°"
@@ -54,7 +55,7 @@ class HomeVC: UIViewController {
         weatherView.clipsToBounds = true
         weatherView.layer.cornerRadius = 10
         
-        tempLabel.textColor = .white
+        tempLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         tempMinLabel.textColor = .white
         tempMaxLabel.textColor = .white
     }
@@ -70,7 +71,7 @@ class HomeVC: UIViewController {
         moodText.layer.borderWidth = 2
         moodText.layer.borderColor = #colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1)
         
-        saveButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        saveButton.setTitleColor(#colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1), for: .normal)
     }
 
     @IBAction func saveButtonTapped(_ sender: Any) {
