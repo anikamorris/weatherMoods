@@ -20,8 +20,8 @@ class Api {
             } else {
                 
                 guard let data = data else { return }
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
-                print(dataString!)
+//                let dataString = String(data: data, encoding: String.Encoding.utf8)
+//                print(dataString!)
                 guard let jsonObj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary else {
                     print("Did not recieve data")
                     return

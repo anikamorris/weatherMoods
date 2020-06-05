@@ -20,7 +20,9 @@ class PastMoodsVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        for i in 0..<persistence.moods.count {
+            print(persistence.moods[i].mood)
+        }
         persistence.setNeedsToReloadMoods()
         tableView.reloadData()
     }

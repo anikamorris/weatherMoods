@@ -23,9 +23,11 @@ class HomeVC: UIViewController {
     
     var icon: UIImage?
     var buttonState: Int = 0
+    var moodInputtedToday: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        moodInputtedToday = false
         baseView.backgroundColor = #colorLiteral(red: 0.9609126449, green: 0.9609126449, blue: 0.9609126449, alpha: 1)
         setupWeatherView()
         let api = Api()
@@ -44,14 +46,14 @@ class HomeVC: UIViewController {
     }
     
     func downloadImage(url: String) -> UIImage? {
-        let url = URL(string: url)
-        let data = NSData(contentsOf: url!)
-        let image = UIImage(data: data! as Data)
+        guard let url = URL(string: url) else { return nil }
+        guard let data = NSData(contentsOf: url) else { return nil }
+        guard let image = UIImage(data: data as Data) else { return nil }
         return image
     }
     
     func setupWeatherView() {
-        weatherView.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+        weatherView.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         weatherView.clipsToBounds = true
         weatherView.layer.cornerRadius = 10
         
@@ -61,7 +63,7 @@ class HomeVC: UIViewController {
     }
     
     func setupMoodView() {
-        moodView.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+        moodView.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         moodView.clipsToBounds = true
         moodView.layer.cornerRadius = 10
         
@@ -79,6 +81,7 @@ class HomeVC: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         var persistence = PersistenceLayer()
         guard let mood = moodText.text else { return }
+        
         // edit
         if buttonState > 0 {
             buttonState -= 1
@@ -87,10 +90,17 @@ class HomeVC: UIViewController {
             moodText.isEditable = true
             moodText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             moodText.textColor = .darkText
-        // save
+        // save for the first time
         } else {
             buttonState += 1
-            persistence.newMood(mood: mood)
+            if moodInputtedToday {
+                persistence.updateMood(0, newMood: mood)
+                persistence.setNeedsToReloadMoods()
+                print(persistence.moods)
+            } else {
+                moodInputtedToday = true
+                persistence.newMood(mood: mood)
+            }
             saveButton.setTitle("Edit", for: .normal)
             saveButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
             moodText.isEditable = false

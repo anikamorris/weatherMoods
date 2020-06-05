@@ -50,8 +50,7 @@ struct PersistenceLayer {
     }
     
     mutating func updateMood(_ moodIndex: Int, newMood: String) {
-        var updatedMood = self.moods[moodIndex]
-        updatedMood.mood = newMood
+        self.moods[moodIndex].mood = newMood
         self.saveMoods()
     }
     
