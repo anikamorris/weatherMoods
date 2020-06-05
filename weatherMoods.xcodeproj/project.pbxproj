@@ -15,6 +15,7 @@
 		CF68DFF624899A0300377C58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF68DFF424899A0300377C58 /* LaunchScreen.storyboard */; };
 		CF68DFFE24899A2700377C58 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68DFFD24899A2700377C58 /* API.swift */; };
 		CF68E00024899B4900377C58 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68DFFF24899B4900377C58 /* HomeVC.swift */; };
+		CFCC7384248A2EE6007B3697 /* UIImageView+downloaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC7383248A2EE6007B3697 /* UIImageView+downloaded.swift */; };
 		CFDA776F2489CE4A00D1C314 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA776E2489CE4A00D1C314 /* Mood.swift */; };
 		CFDA77712489CF8F00D1C314 /* PersistenceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */; };
 		CFDA77752489E6AD00D1C314 /* PastMoodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */; };
@@ -33,6 +34,7 @@
 		CF68DFF724899A0300377C58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF68DFFD24899A2700377C58 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CF68DFFF24899B4900377C58 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CFCC7383248A2EE6007B3697 /* UIImageView+downloaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+downloaded.swift"; sourceTree = "<group>"; };
 		CFDA776E2489CE4A00D1C314 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLayer.swift; sourceTree = "<group>"; };
 		CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastMoodsVC.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		CF68DFE8248999FC00377C58 /* weatherMoods */ = {
 			isa = PBXGroup;
 			children = (
+				CFCC7385248A2F6E007B3697 /* Extensions */,
 				CF3076182489AF2F00398C52 /* Models */,
 				CF3076172489AF2800398C52 /* Views */,
 				CF3076162489AF1A00398C52 /* Controllers */,
@@ -110,6 +113,14 @@
 				CF68DFF724899A0300377C58 /* Info.plist */,
 			);
 			path = weatherMoods;
+			sourceTree = "<group>";
+		};
+		CFCC7385248A2F6E007B3697 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CFCC7383248A2EE6007B3697 /* UIImageView+downloaded.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +202,7 @@
 				CF68E00024899B4900377C58 /* HomeVC.swift in Sources */,
 				CFDA77772489EF1C00D1C314 /* MoodCell.swift in Sources */,
 				CFDA776F2489CE4A00D1C314 /* Mood.swift in Sources */,
+				CFCC7384248A2EE6007B3697 /* UIImageView+downloaded.swift in Sources */,
 				CF68DFEC248999FC00377C58 /* SceneDelegate.swift in Sources */,
 				CFDA77752489E6AD00D1C314 /* PastMoodsVC.swift in Sources */,
 			);

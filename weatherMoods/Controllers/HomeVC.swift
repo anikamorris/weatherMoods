@@ -21,6 +21,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var iconImageView: UIImageView!
     
+//    let editStateMoodView:
+    
     var icon: UIImage?
     var buttonState: Int = 0
     var moodInputtedToday: Bool = false
@@ -42,23 +44,14 @@ class HomeVC: UIViewController {
         setupWeatherView()
         let api = Api()
         api.getData() { weather in
-            self.icon = self.downloadImage(url: "https://openweathermap.org/img/wn/\(weather.icon)@2x.png")
-            if let icon = self.icon {
-                self.iconImageView.image = icon
-            }
+            guard let url = URL(string: "https://openweathermap.org/img/wn/\(weather.icon)@2x.png") else { return }
+            self.iconImageView.downloaded(from: url)
             self.tempLabel.textColor = .white
             self.tempLabel.text = "Current: \(weather.temp)°"
             self.tempMinLabel.text = "Low: \(weather.min)°"
             self.tempMaxLabel.text = "High: \(weather.max)°"
         }
         setupMoodView()
-    }
-    
-    func downloadImage(url: String) -> UIImage? {
-        guard let url = URL(string: url) else { return nil }
-        guard let data = NSData(contentsOf: url) else { return nil }
-        guard let image = UIImage(data: data as Data) else { return nil }
-        return image
     }
     
     func setupWeatherView() {
