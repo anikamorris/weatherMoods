@@ -44,12 +44,13 @@ class HomeVC: UIViewController {
         setupWeatherView()
         let api = Api()
         api.getData() { weather in
-            guard let url = URL(string: "https://openweathermap.org/img/wn/\(weather.icon)@2x.png") else { return }
-            self.iconImageView.downloaded(from: url)
             self.tempLabel.textColor = .white
             self.tempLabel.text = "Current: \(weather.temp)°"
             self.tempMinLabel.text = "Low: \(weather.min)°"
             self.tempMaxLabel.text = "High: \(weather.max)°"
+            
+            guard let url = URL(string: "https://openweathermap.org/img/wn/\(weather.icon)@2x.png") else { return }
+            self.iconImageView.downloaded(from: url)
         }
         setupMoodView()
     }
@@ -62,6 +63,22 @@ class HomeVC: UIViewController {
         tempLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         tempMinLabel.textColor = .white
         tempMaxLabel.textColor = .white
+    }
+    
+    func moodTextEditState() {
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.setTitleColor(#colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1), for: .normal)
+        moodText.isEditable = true
+        moodText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        moodText.textColor = .darkText
+    }
+    
+    func moodTextSaveState() {
+        saveButton.setTitle("Edit", for: .normal)
+        saveButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        moodText.isEditable = false
+        moodText.backgroundColor = #colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1)
+        moodText.textColor = .white
     }
     
     func setupMoodView() {
@@ -78,16 +95,10 @@ class HomeVC: UIViewController {
         
         if moodInputtedToday {
             buttonState = 0
-            saveButton.setTitle("Edit", for: .normal)
-            saveButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
             moodText.text = persistence.moods[0].mood
-            moodText.isEditable = false
-            moodText.backgroundColor = #colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1)
-            moodText.textColor = .white
+            moodTextSaveState()
         } else {
-            moodText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            moodText.textColor = .darkText
-            saveButton.setTitleColor(#colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1), for: .normal)
+            moodTextEditState()
         }
     }
 
@@ -98,11 +109,7 @@ class HomeVC: UIViewController {
         // edit
         if buttonState > 0 {
             buttonState -= 1
-            saveButton.setTitle("Save", for: .normal)
-            saveButton.setTitleColor(#colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1), for: .normal)
-            moodText.isEditable = true
-            moodText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            moodText.textColor = .darkText
+            moodTextEditState()
         // save for the first time
         } else {
             buttonState += 1
@@ -113,11 +120,7 @@ class HomeVC: UIViewController {
                 moodInputtedToday = true
                 persistence.newMood(mood: mood)
             }
-            saveButton.setTitle("Edit", for: .normal)
-            saveButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-            moodText.isEditable = false
-            moodText.backgroundColor = #colorLiteral(red: 1, green: 0.431372549, blue: 0.3019607843, alpha: 1)
-            moodText.textColor = .white
+            moodTextSaveState()
         }
     }
 }
