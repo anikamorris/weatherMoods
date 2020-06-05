@@ -16,6 +16,7 @@
 		CF68DFFE24899A2700377C58 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68DFFD24899A2700377C58 /* API.swift */; };
 		CF68E00024899B4900377C58 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68DFFF24899B4900377C58 /* HomeVC.swift */; };
 		CFCC7384248A2EE6007B3697 /* UIImageView+downloaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC7383248A2EE6007B3697 /* UIImageView+downloaded.swift */; };
+		CFCC738A248A4545007B3697 /* MoodHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC7389248A4545007B3697 /* MoodHistory.swift */; };
 		CFDA776F2489CE4A00D1C314 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA776E2489CE4A00D1C314 /* Mood.swift */; };
 		CFDA77712489CF8F00D1C314 /* PersistenceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */; };
 		CFDA77752489E6AD00D1C314 /* PastMoodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */; };
@@ -35,6 +36,7 @@
 		CF68DFFD24899A2700377C58 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CF68DFFF24899B4900377C58 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CFCC7383248A2EE6007B3697 /* UIImageView+downloaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+downloaded.swift"; sourceTree = "<group>"; };
+		CFCC7389248A4545007B3697 /* MoodHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodHistory.swift; sourceTree = "<group>"; };
 		CFDA776E2489CE4A00D1C314 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLayer.swift; sourceTree = "<group>"; };
 		CFDA77742489E6AD00D1C314 /* PastMoodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastMoodsVC.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				CFDA776E2489CE4A00D1C314 /* Mood.swift */,
 				CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */,
 				CFDA7778248A0BC600D1C314 /* Day.swift */,
+				CFCC7389248A4545007B3697 /* MoodHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF68DFEA248999FC00377C58 /* AppDelegate.swift in Sources */,
+				CFCC738A248A4545007B3697 /* MoodHistory.swift in Sources */,
 				CFDA7779248A0BC700D1C314 /* Day.swift in Sources */,
 				CF3076152489AF0800398C52 /* WeatherData.swift in Sources */,
 				CF68DFFE24899A2700377C58 /* API.swift in Sources */,

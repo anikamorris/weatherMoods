@@ -11,6 +11,9 @@ import UIKit
 class MoodCell: UITableViewCell {
 
     @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var weatherImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

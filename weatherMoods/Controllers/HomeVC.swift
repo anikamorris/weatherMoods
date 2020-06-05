@@ -20,10 +20,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var moodText: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var iconImageView: UIImageView!
-    
-//    let editStateMoodView:
-    
+        
     var icon: UIImage?
+    var iconName: String?
     var buttonState: Int = 0
     var moodInputtedToday: Bool = false
     let persistence = PersistenceLayer()
@@ -48,8 +47,9 @@ class HomeVC: UIViewController {
             self.tempLabel.text = "Current: \(weather.temp)°"
             self.tempMinLabel.text = "Low: \(weather.min)°"
             self.tempMaxLabel.text = "High: \(weather.max)°"
+            self.iconName = weather.icon
             
-            guard let url = URL(string: "https://openweathermap.org/img/wn/\(weather.icon)@2x.png") else { return }
+            guard let url = URL(string: "https://openweathermap.org/img/wn/\(self.iconName!)@2x.png") else { return }
             self.iconImageView.downloaded(from: url)
         }
         setupMoodView()
@@ -95,7 +95,7 @@ class HomeVC: UIViewController {
         
         if moodInputtedToday {
             buttonState = 0
-            moodText.text = persistence.moods[0].mood
+            moodText.text = persistence.moodJournal[0].mood.mood
             moodTextSaveState()
         } else {
             moodTextEditState()
@@ -110,15 +110,18 @@ class HomeVC: UIViewController {
         if buttonState > 0 {
             buttonState -= 1
             moodTextEditState()
-        // save for the first time
+        // save
         } else {
             buttonState += 1
             if moodInputtedToday {
-                persistence.updateMood(0, newMood: mood)
-                persistence.setNeedsToReloadMoods()
+                // updating today's mood
+
+                persistence.updateMoodHistory(0, newMood: mood)
+                persistence.setNeedsToReloadMoodJournal()
             } else {
+                // first time today
                 moodInputtedToday = true
-                persistence.newMood(mood: mood)
+                persistence.newMoodHistory(mood: mood, day: persistence.day!, icon: iconName!)
             }
             moodTextSaveState()
         }
