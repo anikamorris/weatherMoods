@@ -75,10 +75,10 @@
 		CF3076182489AF2F00398C52 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */,
 				CF3076142489AF0800398C52 /* WeatherData.swift */,
 				CF68DFFD24899A2700377C58 /* API.swift */,
 				CFDA776E2489CE4A00D1C314 /* Mood.swift */,
-				CFDA77702489CF8F00D1C314 /* PersistenceLayer.swift */,
 				CFDA7778248A0BC600D1C314 /* Day.swift */,
 				CFCC7389248A4545007B3697 /* MoodHistory.swift */,
 			);
